@@ -1,6 +1,13 @@
 var express = require('express')
 var app = express()
 
+var logger = function(req,res,next){
+console.log('loading..')
+next();
+};
+
+app.use(logger);
+
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
